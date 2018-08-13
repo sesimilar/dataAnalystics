@@ -1,5 +1,7 @@
 package com.citi.shanghai.training.dataAnalyst.service.impl;
 
+import com.citi.shanghai.training.dataAnalyst.dao.UserMapper;
+import com.citi.shanghai.training.dataAnalyst.model.User;
 import com.citi.shanghai.training.dataAnalyst.service.UserService;
 import org.springframework.stereotype.Service;
 

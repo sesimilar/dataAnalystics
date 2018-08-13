@@ -1,5 +1,6 @@
 package com.citi.shanghai.training.dataAnalyst.controller;
 
+import com.citi.shanghai.training.dataAnalyst.model.User;
 import com.citi.shanghai.training.dataAnalyst.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

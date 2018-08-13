@@ -27,6 +27,12 @@
     from symbols
     where symbolID = #{symbolid,jdbcType=INTEGER}
   </select>
+  <select id="getAllSymbols" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from symbols
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     <!--
       WARNING - @mbggenerated

@@ -1,5 +1,8 @@
 package com.citi.shanghai.training.dataAnalyst.dao;
 
+import com.citi.shanghai.training.dataAnalyst.entity.PortfolioAllSymbols;
+import com.citi.shanghai.training.dataAnalyst.model.Portfolio;
+
 import java.util.List;
 
 public interface PortfolioMapper {
@@ -51,6 +54,6 @@ public interface PortfolioMapper {
      */
     int updateByPrimaryKey(Portfolio record);
 
-    List<Portfolio> selectPortfolioByUserId(Integer userId);
+    List<PortfolioAllSymbols> selectPortfolioByUserId(Integer userId);
 
 }

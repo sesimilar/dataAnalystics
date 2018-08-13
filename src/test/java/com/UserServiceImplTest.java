@@ -1,6 +1,7 @@
 package com;
 
 import com.alibaba.fastjson.JSON;
+import com.citi.shanghai.training.dataAnalyst.model.User;
 import com.citi.shanghai.training.dataAnalyst.service.UserService;
 import org.apache.log4j.Logger;
 import org.junit.Test;

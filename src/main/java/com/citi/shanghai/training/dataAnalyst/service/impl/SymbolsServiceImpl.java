@@ -18,7 +18,6 @@ public class SymbolsServiceImpl implements SymbolsService {
     @Resource
     private SymbolsMapper mapper;
 
-    @Override
     public List<Symbols> getAllSymbols() {
         List<Symbols> symbols;
         if((symbols=this.mapper.getAllSymbols()) != null){

@@ -1,6 +1,6 @@
 package com.citi.shanghai.training.dataAnalyst.controller;
 
-import com.citi.shanghai.training.dataAnalyst.entity.UserAllPortfolio;
+import com.citi.shanghai.training.dataAnalyst.entity.PortfolioAllSymbols;
 import com.citi.shanghai.training.dataAnalyst.model.Portfolio;
 import com.citi.shanghai.training.dataAnalyst.service.PortfoliosService;
 import org.springframework.stereotype.Controller;
@@ -24,12 +24,10 @@ public class PortfolioController {
     private PortfoliosService service;
 
     @RequestMapping(value = "/all/{id}",method = RequestMethod.GET)
-    public @ResponseBody UserAllPortfolio getUserAllPortfolio(@PathVariable String id, HttpServletRequest request){
+    public @ResponseBody List<PortfolioAllSymbols> getUserAllPortfolio(@PathVariable String id, HttpServletRequest request){
         int userId = Integer.parseInt(id);
-        List<Portfolio> portfolios = service.getPortfolioByUserId(userId);
-
-
-        return null;
+        List<PortfolioAllSymbols> portfolios = service.getPortfolioByUserId(userId);
+        return portfolios;
     }
 
 }
