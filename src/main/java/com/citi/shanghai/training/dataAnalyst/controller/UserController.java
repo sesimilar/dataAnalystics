@@ -1,6 +1,5 @@
 package com.citi.shanghai.training.dataAnalyst.controller;
 
-import com.citi.shanghai.training.dataAnalyst.model.User;
 import com.citi.shanghai.training.dataAnalyst.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -28,5 +28,10 @@ public class UserController {
         logger.debug(user.toString());
         model.addAttribute("user", user);
         return "index";
+    }
+    @RequestMapping(value = "/mapping/companys",method = RequestMethod.GET)
+    public @ResponseBody String companyMapping(HttpServletRequest request, Model model){
+
+        return "";
     }
 }

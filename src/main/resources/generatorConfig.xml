@@ -3,8 +3,8 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration >
-    <properties resource="properties/db.properties"></properties>
-    <!-- mysql jar 文件位置 -->
+    <properties url="file:///D:/IdeaProjects/dataAnalyst/src/main/resources/properties/db.properties"></properties>
+    <!-- mssql jar 文件位置 -->
     <classPathEntry location="${jdbc.driverLocation}" />
     <context id="store" targetRuntime="MyBatis3">
         <commentGenerator>
@@ -49,5 +49,58 @@
                selectByExampleQueryId="false"
         >
         </table>
+
+        <table schema="" tableName="symbols" domainObjectName="Symbols"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+        >
+        </table>
+
+        <table schema="" tableName="portfolios" domainObjectName="Portfolio"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+        >
+        </table>
+        <table schema="" tableName="calendar" domainObjectName="CalendarDate"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+        >
+        </table>
+        <table schema="" tableName="aggsByHour" domainObjectName="AggsByHour"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+        >
+        </table>
+
+        <table schema="" tableName="portfolioWithSymbols" domainObjectName="PortfolioSymbols"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+        >
+        </table>
+
+        <table schema="" tableName="records" domainObjectName="Recoards"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"
+        >
+        </table>
+
     </context>
 </generatorConfiguration>

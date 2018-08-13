@@ -111,7 +111,7 @@
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>6.2.0.jre8</version>
+            <version>6.1.0.jre8</version>
             <scope>runtime</scope>
         </dependency>
         <!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->
@@ -204,16 +204,16 @@
         <finalName>dataAnalyst</finalName>
         <plugins>
             <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.2.8.v20150217</version>
-                <configuration>
-                    <httpConnector>
-                        <port>80</port>
-                    </httpConnector>
-                    <stopKey>shutdown</stopKey>
-                    <stopPort>9966</stopPort>
-                </configuration>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-maven-plugin</artifactId>
+            <version>9.2.8.v20150217</version>
+            <configuration>
+                <httpConnector>
+                    <port>80</port>
+                </httpConnector>
+                <stopKey>shutdown</stopKey>
+                <stopPort>9966</stopPort>
+            </configuration>
             </plugin>
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
