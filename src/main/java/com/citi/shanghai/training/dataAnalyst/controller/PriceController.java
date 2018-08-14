@@ -5,6 +5,7 @@ import com.citi.shanghai.training.dataAnalyst.entity.Price;
 import com.citi.shanghai.training.dataAnalyst.entity.PriceToFront;
 import com.citi.shanghai.training.dataAnalyst.entity.StockPrices;
 import com.citi.shanghai.training.dataAnalyst.service.AggsByHourService;
+import com.citi.shanghai.training.dataAnalyst.service.PriceByDayService;
 import com.citi.shanghai.training.dataAnalyst.service.SymbolsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +25,10 @@ public class PriceController {
 
     @Resource
     private AggsByHourService service;
+
+    @Resource
+    private PriceByDayService serviceByDay;
+
     @Resource
     private SymbolsService symbolsService;
 
@@ -64,5 +69,12 @@ public class PriceController {
             ept.setResult(priceToFronts);
         }
         return ept;
+    }
+    @RequestMapping(value = "/byDay",method = RequestMethod.GET)
+    public @ResponseBody EnhancePriceToFront getPriceByDay(HttpServletRequest request){
+        int fromDate = Integer.parseInt(request.getParameter("from_date"));
+        int toDate = Integer.parseInt(request.getParameter("to_date"));
+        String symbolString = request.getParameter("symbol");
+        return serviceByDay.getPrice(fromDate,toDate,Arrays.asList(symbolString.split(",")));
     }
 }
