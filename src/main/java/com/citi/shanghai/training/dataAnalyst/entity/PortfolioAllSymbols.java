@@ -1,6 +1,5 @@
 package com.citi.shanghai.training.dataAnalyst.entity;
 
-import com.citi.shanghai.training.dataAnalyst.model.Portfolio;
 import com.citi.shanghai.training.dataAnalyst.model.Symbols;
 
 import java.util.List;

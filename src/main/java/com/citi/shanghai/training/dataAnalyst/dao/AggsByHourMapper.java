@@ -1,6 +1,9 @@
 package com.citi.shanghai.training.dataAnalyst.dao;
 
 import com.citi.shanghai.training.dataAnalyst.model.AggsByHour;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface AggsByHourMapper {
     /**
@@ -50,4 +53,6 @@ public interface AggsByHourMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(AggsByHour record);
+
+    List<AggsByHour> selectRecordsByDateAndSymbols(@Param("startDay") Integer startDay, @Param("endDay") Integer endDay, @Param("symbolsId") List<Integer> symbolsId);
 }
