@@ -4,7 +4,7 @@
 		method:	GET	
 		params:
 		{
-			id:1or2or3..
+			id:1
 		}
 		response:
 		{
@@ -13,7 +13,10 @@
 				"portfolioId": 4,
 				"createDate": "2018-08-15 03:10:47",
 				"portfolioName": "test1",
-				"symbols": []
+				"symbols": [
+							"symbolid":1,
+							"symbol":"aa"				
+				]
 			},
 			{
 				"portfolioId": 5,
@@ -40,7 +43,12 @@
 					"portfolioId": 4,
 					"createDate": "2018-08-15 03:10:47",
 					"portfolioName": "test1",
-					"symbols": []
+					"symbols": [
+						{
+							"symbolid":1,
+							"symbol":"aa"
+						}
+					]
 				},
 				{
 					"portfolioId": 5,
@@ -54,4 +62,43 @@
 			{
 				"error:" + errorMessage()
 			}
+			
+	**deletePortfolio
+		url:'portfolio/deletePortfolio'
+		method:POST
+		request body:
+		{
+			"portfolioid":1
+			"userid":1
+		}
+		response:
+		`same as interface "addPortfolio"
 	
+*portfolioSymbols
+	**addPortfolioSymbol
+		url:'portfolioSymbols/addPortfolioSymbols'
+		method:POST
+		request body:
+		{
+			"portfolioid":1
+			"symbolid":1
+		}
+		response:
+		*if success
+			{	
+			 "success"
+			}
+		*if error
+			{
+			"error"
+			}
+	**deletePortfolioSymbol
+		url:'portfolioSymbols/deletePortfolioSymbol'
+		method:POST
+		request body:
+		{
+			"portfolioid":1
+			"symbolid":1
+		}
+		response:
+		*same as interface "addPortfolioSymbol"
