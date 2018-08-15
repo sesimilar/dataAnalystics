@@ -55,5 +55,7 @@ public interface PortfolioMapper {
     int updateByPrimaryKey(Portfolio record);
 
     List<PortfolioAllSymbols> selectPortfolioByUserId(Integer userId);
+    int addPortfolio(Portfolio record);
 
+    int deletePortfolio(Integer portfolioID);
 }

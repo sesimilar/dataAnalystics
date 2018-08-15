@@ -8,6 +8,7 @@ import com.citi.shanghai.training.dataAnalyst.service.PriceByDayService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +20,8 @@ public class PriceByDayServiceImpl implements PriceByDayService {
     private AggsByDayMapper mapper;
     @Override
     public EnhancePriceToFront getPrice(int fromDate, int toDate, List<String> symbols) {
+        NumberFormat format = NumberFormat.getInstance();
+        format.setMaximumFractionDigits(6);
         EnhancePriceToFront enhancePriceToFronts = new EnhancePriceToFront();
         enhancePriceToFronts.setResult(new ArrayList<>());
         Map<String,List<AggsByDay>> priceInSymbol = new HashMap<>();
@@ -39,7 +42,7 @@ public class PriceByDayServiceImpl implements PriceByDayService {
                 priceToFront.setSymbol(entry.getKey());
                 String[][] displayPrices = new String[entry.getValue().size()][];
                 for (int i = 0; i < entry.getValue().size(); i++) {
-                    displayPrices[i] = new String[6];
+                    displayPrices[i] = new String[7];
                     AggsByDay aggsByDay = entry.getValue().get(i);
                     int date =aggsByDay.getDate();
                     displayPrices[i][0] = date/10000 + "-" +String.format("%2s",(date % 10000) / 100).replace(' ','0') + "-" + String.format("%2s",date % 100).replace(' ','0');
@@ -48,6 +51,7 @@ public class PriceByDayServiceImpl implements PriceByDayService {
                     displayPrices[i][3] = String.valueOf(aggsByDay.getHigh());
                     displayPrices[i][4] = String.valueOf(aggsByDay.getLow());
                     displayPrices[i][5] = String.valueOf(aggsByDay.getVolume());
+                    displayPrices[i][6] = String.valueOf(format.format(aggsByDay.getIncreasePercentage()));
                 }
                 priceToFront.setData(displayPrices);
                 priceToFronts.add(priceToFront);

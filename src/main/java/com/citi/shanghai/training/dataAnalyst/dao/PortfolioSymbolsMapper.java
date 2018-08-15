@@ -54,4 +54,6 @@ public interface PortfolioSymbolsMapper {
     int updateByPrimaryKey(PortfolioSymbols record);
 
     List<PortfolioSymbols> getSymbolsByPortfolioId(Integer portfolioId);
+    int addPortfolioSymbol(PortfolioSymbols portfolioSymbols);
+    int deletePortfolioSymbol(PortfolioSymbols portfolioSymbols);
 }

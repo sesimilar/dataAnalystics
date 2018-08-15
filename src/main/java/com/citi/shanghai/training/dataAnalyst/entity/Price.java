@@ -14,6 +14,16 @@ public class Price {
     private double low;
     private double close;
 
+    public double getIncreasePercentage() {
+        return increasePercentage;
+    }
+
+    public void setIncreasePercentage(double increasePercentage) {
+        this.increasePercentage = increasePercentage;
+    }
+
+    private double increasePercentage;
+
     private BigDecimal volume;
 
 

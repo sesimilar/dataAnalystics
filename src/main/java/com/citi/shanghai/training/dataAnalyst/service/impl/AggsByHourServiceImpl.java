@@ -51,6 +51,7 @@ public class AggsByHourServiceImpl implements AggsByHourService{
             price.setHigh(agg.getHigh());
             price.setLow(agg.getLow());
             price.setVolume(agg.getVolume());
+            price.setIncreasePercentage(agg.getIncreasePercentage());
             sp.getPrices().add(price);
             priceAggBySymbol.put(agg.getSymbolid(),sp);
         });

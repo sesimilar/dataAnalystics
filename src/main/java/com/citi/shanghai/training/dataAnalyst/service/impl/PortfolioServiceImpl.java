@@ -2,6 +2,7 @@ package com.citi.shanghai.training.dataAnalyst.service.impl;
 
 import com.citi.shanghai.training.dataAnalyst.dao.PortfolioMapper;
 import com.citi.shanghai.training.dataAnalyst.entity.PortfolioAllSymbols;
+import com.citi.shanghai.training.dataAnalyst.model.Portfolio;
 import com.citi.shanghai.training.dataAnalyst.service.PortfoliosService;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -28,4 +29,16 @@ public class PortfolioServiceImpl implements PortfoliosService {
         portfolios = new ArrayList();
         return portfolios;
     }
+
+    @Override
+    public int addPortfolio(Portfolio record) {
+        return mapper.addPortfolio(record);
+    }
+
+    @Override
+    public int deletePortfolio(int portfolioID) {
+        return mapper.deletePortfolio(portfolioID);
+    }
+
+
 }
