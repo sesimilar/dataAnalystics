@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 8/15/2018.
@@ -14,7 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 public class SuccessController {
 
     @RequestMapping(value = "/success",method = RequestMethod.POST)
-    public @ResponseBody String returnError(){
-        return "success";
+    public @ResponseBody
+    Map returnSuccess(){
+        Map<String,String> map = new LinkedHashMap<String,String>();
+        map.put("status","success");
+        return map;
     }
 }

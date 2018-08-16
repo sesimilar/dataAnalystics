@@ -2,6 +2,7 @@ package com.citi.shanghai.training.dataAnalyst.dao;
 
 import com.citi.shanghai.training.dataAnalyst.entity.PortfolioAllSymbols;
 import com.citi.shanghai.training.dataAnalyst.model.Portfolio;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -54,7 +55,7 @@ public interface PortfolioMapper {
      */
     int updateByPrimaryKey(Portfolio record);
 
-    List<PortfolioAllSymbols> selectPortfolioByUserId(Integer userId);
+    List<PortfolioAllSymbols> selectPortfolioByUserId(@Param("userId") Integer userId);
     int addPortfolio(Portfolio record);
 
     int deletePortfolio(Integer portfolioID);

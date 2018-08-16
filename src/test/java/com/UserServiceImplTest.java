@@ -1,27 +1,38 @@
 package com;
 
-import com.alibaba.fastjson.JSON;
+import com.citi.shanghai.training.dataAnalyst.dao.UserMapper;
 import com.citi.shanghai.training.dataAnalyst.model.User;
 import com.citi.shanghai.training.dataAnalyst.service.UserService;
-import org.apache.log4j.Logger;
+import com.citi.shanghai.training.dataAnalyst.service.impl.UserServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
 
-import javax.annotation.Resource;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations={"classpath:spring/spring-mybatis.xml"})
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyInt;
+import static org.mockito.Mockito.*;
+
+@RunWith(MockitoJUnitRunner.class)
 public class UserServiceImplTest {
 
-    private static Logger logger = Logger.getLogger(UserServiceImplTest.class);
-    @Resource
-    UserService userService;
+    @InjectMocks
+    UserService userService = new UserServiceImpl();
+
+    @Mock
+    UserMapper mapper;
+
 
     @Test
     public void getUserById() {
-        User user = userService.getUserById(1);
-        logger.info(JSON.toJSONString(user));
+
+        User user = mock(User.class);
+
+        when(mapper.selectByPrimaryKey(anyInt())).thenReturn(user);
+
+        assertEquals(user,userService.getUserById(1));
+        verify(mapper,times(1)).selectByPrimaryKey(1);
     }
 }

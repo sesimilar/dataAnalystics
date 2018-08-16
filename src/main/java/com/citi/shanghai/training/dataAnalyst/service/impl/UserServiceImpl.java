@@ -16,4 +16,19 @@ public class UserServiceImpl implements UserService {
     public User getUserById(int userId) {
         return this.userMapper.selectByPrimaryKey(new Integer(userId));
     }
+    @Override
+    public User register(String username, String password) {
+        User user = null;
+        if(this.userMapper.register(username,password) == 1){
+            user = userMapper.login(username,password);
+        }
+        return user;
+
+    }
+
+    @Override
+    public User login(String username,String password) {
+        return this.userMapper.login(username,password);
+
+    }
 }

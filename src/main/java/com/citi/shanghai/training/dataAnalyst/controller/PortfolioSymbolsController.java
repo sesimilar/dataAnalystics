@@ -32,7 +32,7 @@ public class PortfolioSymbolsController {
         return "forward:/success";
     }
     @RequestMapping(value = "/delPortfolioSymbols",method = RequestMethod.POST)
-    public @ResponseBody String deletePortfolioSymbol(@RequestBody PortfolioSymbols ps, HttpServletRequest request){
+    public String deletePortfolioSymbol(@RequestBody PortfolioSymbols ps, HttpServletRequest request){
 //        @PathVariable Integer portfolioid,@PathVariable Integer symbolid,
 //        PortfolioSymbols portfolioSymbols = new PortfolioSymbols();
 //        portfolioSymbols.setPortfolioid(portfolioid);
